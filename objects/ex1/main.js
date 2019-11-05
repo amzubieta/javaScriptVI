@@ -1,3 +1,5 @@
+// Constructor de mi boton
+
 class Botao{
     constructor(texto, cor, tamanho, icone){
         this.texto=texto
@@ -5,16 +7,29 @@ class Botao{
         this.tamanho=tamanho
         this.icone=icone
     }
-    denhaBotao(){
+    desenhaBotao(){
         const novoBotao = document.createElement('button')
-        novoBotao.setAttribute("class", `${this.cor}, ${this.tamanho}`)
+        novoBotao.setAttribute("class", `${this.cor} ${this.tamanho}`)
         if(this.icone){
         // <i></i>
         const tagIcone=document.createElement("i")
         tagIcone.setAttribute("class",`fas ${this.icone}`)
         novoBotao.appendChild(tagIcone)
-        const text = document.createTextNote(this.texto)
+        const text = document.createTextNode(this.texto)
         novoBotao.appendChild(text)
+        }else{
+            novoBotao.innerHTML=this.texto
         }
+        document.getElementById('buttons-section').appendChild(novoBotao)
     }
 }
+
+const botaoVerde = new Botao("Enviar", "verde", "pequeno", "fa-plus")
+botaoVerde.desenhaBotao()
+
+const botaoRoxo = new Botao("Botao novo", "roxo", "grande", "fa-infinity")
+botaoRoxo.desenhaBotao()
+
+const botaoAzul = new Botao("Botao azul", "azul", "medio", "fa-angellist")
+botaoAzul.desenhaBotao()
+
