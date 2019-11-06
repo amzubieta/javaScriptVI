@@ -6,3 +6,21 @@ const users = [{
   nome: "Doge",
   imagem: "https://images-na.ssl-images-amazon.com/images/I/81-yKbVND-L._SY355_.png"
 }]
+
+class Avatar{
+  constructor(usuario){
+    this.usuario=usuario
+  }
+
+  render(){
+    const avatar=`<div class="avatar green">
+    <img class="img-rounded" src=${this.usuario.imagem}/>
+    <h2>${this.usuario.nome}</h2>
+    </div>`
+    document.getElementById('cards-section').insertAdjacentHTML('beforeend',avatar)
+  }
+}
+
+users.map((user)=>{
+  new Avatar(user).render()
+})
