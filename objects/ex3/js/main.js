@@ -28,19 +28,32 @@ let resultados = [
 
 const renderNavbar = new Navbar
 renderNavbar.render()
+const sectioCards = document.querySelector('.cards')
+// const carregaCards = (arrayRecebido) => {
+//     sectioCards.innerHTML = arrayRecebido.map(objeto => {
+//         return new Card(objeto).render()
+//     }).join("")
+// }
 
-document.querySelector('.cards').innerHTML = resultados.map((receita)=>{
+document.querySelector('.cards').innerHTML = resultados.map((receita) => {
     return new Card(receita).render()
-  }).join("")
+}).join("")
 
-document.querySelector('.button__search').addEventListener('click', function(){
+document.querySelector('.button__search').addEventListener('click', function () {
     let inputValue = document.querySelector('.input__search').value.toUpperCase()
-    let achados = resultados.filter(receita=>{
-        return receita.titulo.toUpperCase().includes(inputValue) || 
-        (receita.ingredientes.toUpperCase().includes(inputValue))
+    let achados = resultados.filter(receita => {
+        return receita.titulo.toUpperCase().includes(inputValue) ||
+            (receita.ingredientes.toUpperCase().includes(inputValue))
     })
-    document.querySelector('.cards').innerHTML = achados.map((receita)=>{
+    document.querySelector('.cards').innerHTML = achados.map((receita) => {
         return new Card(receita).render()
-      }).join("")
-    
-})
+    }).join("")
+})   
+
+const limpar = (value) => {
+    if (!value) {
+        document.querySelector('.cards').innerHTML = resultados.map((receita) => {
+        return new Card(receita).render()
+        }).join("")
+    }
+}
