@@ -22,14 +22,25 @@ class Botao{
         }
         document.getElementById('buttons-section').appendChild(novoBotao)
     }
+    document.getElementById('buttons-section').appendChild(novoBotao)
+  }
+  desenhaBotaoString(){
+    const btn = `<button class="${this.cor} ${this.tamanho}">
+              ${this.icone ? `<i class="fas ${this.icone}"></i>` : ''} ${this.texto}
+            </button>`
+
+    document.getElementById('buttons-section').insertAdjacentHTML('beforeend', btn)
+  }
+
 }
 
-const botaoVerde = new Botao("Enviar", "verde", "pequeno", "fa-plus")
+const botaoVerde = new Botao("Enviar", "verde", "pequeno", "fa-plus" )
 botaoVerde.desenhaBotao()
 
-const botaoRoxo = new Botao("Botao novo", "roxo", "grande", "fa-infinity")
+const botaoRoxo = new Botao("Botao Novo", "roxo", "grande", "fa-infinity")
 botaoRoxo.desenhaBotao()
 
-const botaoAzul = new Botao("Botao azul", "azul", "medio", "fa-angellist")
+const botaoAzul = new Botao("Botao Azul", "azul", "medio", "fa-cat")
 botaoAzul.desenhaBotao()
 
+botaoVerde.desenhaBotaoString()
