@@ -1,8 +1,9 @@
 class Card{
-    constructor(card){
-        this.card = card
+    constructor(cardParametro){
+        this.card = cardParametro
     }
      
+    // Grupo de variables creadas apartir de un objeto. Desconstruye un objeto
     render(){
         const {
             nome,
@@ -11,6 +12,8 @@ class Card{
             descricao,
             link
         } = this.card
+
+        //Renderizar variables 
         return `
         <div class="content">   
             <h2 class="titulo">${nome}</h2>
